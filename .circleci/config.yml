@@ -1,0 +1,19 @@
+version: 2.1
+
+orbs:
+  my-orb:
+    commands:
+      hello-world:
+        steps:
+          - run: echo "hello, world!"
+    executors:
+      default:
+        docker:
+          - image: bash:latest
+    jobs:
+
+jobs:
+  build:
+    executor: my-orb/default
+    steps:
+      - my-orb/hello-world
